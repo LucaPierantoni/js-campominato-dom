@@ -1,0 +1,66 @@
+* {font-family: sans-serif;}
+
+body {
+    background-image: url(/img/batmanbg3.jpg);
+}
+
+#batman-logo-nav {
+    width: 80px;
+    height: auto;
+    margin-left: 60px;
+}
+
+#game-board {
+    background-color: black;
+    opacity: 0.4;
+    width: 40vw;
+    height: 40vw;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px rgb(255, 255, 255);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+}
+
+.active{
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
+
+.disabled {
+    cursor: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#result {
+    color:white;
+    font-size: 5vw;
+}
+.jolly {
+    height: 4vw;
+    width: 4vw;
+}
+
+@media screen and (max-width:783px ) {
+    #game-board {
+        height: 90vw;
+        width: 90vw;
+    }
+    .jolly{
+        height: 10vw;
+        width: 10vw;
+    }
+}
