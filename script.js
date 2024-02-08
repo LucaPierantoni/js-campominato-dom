@@ -13,7 +13,6 @@ playBtn.addEventListener('click', function(){ //dichiarazione per indicare la fu
     gridCreate(); //richiamo la funzione della creazione del game-board
     
     
-    
 })
 
 delateBtn.addEventListener('click', function(){
@@ -79,6 +78,8 @@ function gridCreate(){
                 posizioneBombe.push(newNumber);
             }
         }
+        playBtn.disabled = true;
+        delateBtn.disabled = false;
         console.log(posizioneBombe);
     }
 
