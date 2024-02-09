@@ -90,6 +90,7 @@ function gridCreate(){
     */
 
     for(let i = 0; i < totalCells; i++){
+
         let cell = cellsCreate(i); //dichiarazione variabile che dipende dalla funzione
         //console.log('Celle create:', cell);
         cell.style.width = `calc(100% / ${rowCells})`; //modifichiamo la grandezza delle celle
@@ -100,34 +101,47 @@ function gridCreate(){
 
         // aggiungo un event listener del click ad ogni cella
         cell.addEventListener("click", cellClick)
+        
     }
     let result = 0;
     function cellClick(event){
-        console.log(this.innerHTML);
+
+        console.log(this);
         console.log(event.target);
         event.target.classList.add("active");
+
         if (posizioneBombe.includes(parseInt(this.innerHTML))) {
+
             event.target.innerHTML = '<img src="img/icons8-film-jolly-100.png" class="jolly"></img>';
             let disabledCells = document.getElementsByClassName("cell");
             console.log(disabledCells)
+
             for (let a = 0; a < totalCells; a++ ) {
+
                 disabledCells[a].removeEventListener("click", cellClick);
                 if (posizioneBombe.includes(a + 1)) {
+
                     disabledCells[a].innerHTML = '<img src="img/icons8-film-jolly-100.png" class="jolly"></img>';
-                } 
+
+                }
             }
         document.getElementById("result").innerHTML = `il tuo risultato e' ${result} `;  
          
         } else {
+
             result++;
             console.log(result);
+
             if (result == totalCells - 16) {
                 document.getElementById("result").innerHTML = ` HAI VINTO!! `;
+
             }
 
         } 
+        this.removeEventListener("click", cellClick);
     }    
 }
+
 
 
 
